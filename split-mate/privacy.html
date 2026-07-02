@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for TripSplit. We collect no personal data. All expenses are stored locally on your device." />
+  <title>Privacy Policy — TripSplit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --midnight: #0F1117;
+      --deep:     #1A1D2E;
+      --card:     #232638;
+      --primary:  #5B6EF5;
+      --accent:   #50E3C2;
+      --text:     #F0F2FF;
+      --muted:    rgba(240,242,255,0.58);
+      --border:   rgba(91,110,245,0.18);
+      --radius:   14px;
+      --max:      740px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--midnight);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 24px;
+      height: 56px; display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.05rem; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-spacer { flex: 1; }
+    .nav-link {
+      font-size: 0.85rem; font-weight: 600; color: var(--muted);
+      text-decoration: none; padding: 6px 12px; border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: var(--text); background: rgba(91,110,245,0.12); }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: var(--max); margin: 0 auto; padding: 56px 24px 80px;
+    }
+
+    /* ── Header block ── */
+    .page-header { margin-bottom: 52px; }
+    .page-header .label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--primary); margin-bottom: 10px;
+    }
+    .page-header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -1.2px; line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-header .effective {
+      font-size: 0.82rem; color: var(--muted);
+    }
+
+    /* ── Summary banner ── */
+    .summary-banner {
+      background: linear-gradient(135deg,
+        rgba(80,227,194,0.08) 0%,
+        rgba(91,110,245,0.06) 100%);
+      border: 1px solid rgba(80,227,194,0.2);
+      border-radius: 16px;
+      padding: 22px 22px;
+      margin-bottom: 52px;
+    }
+    .summary-banner h2 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .summary-list {
+      list-style: none; display: flex; flex-direction: column; gap: 8px;
+    }
+    .summary-list li {
+      font-size: 0.88rem; color: var(--text);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .summary-list li::before {
+      content: "✓"; color: var(--accent);
+      font-weight: 800; flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* ── Policy sections ── */
+    .policy-section { margin-bottom: 44px; }
+    .policy-section h2 {
+      font-size: 1.1rem; font-weight: 800; letter-spacing: -0.3px;
+      margin-bottom: 12px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px;
+      background: var(--primary); color: #fff;
+      font-size: 0.72rem; font-weight: 800;
+      border-radius: 7px; flex-shrink: 0;
+    }
+    .policy-section p,
+    .policy-section li {
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 10px;
+    }
+    .policy-section ul {
+      padding-left: 20px; margin-bottom: 10px;
+    }
+    .policy-section li { list-style: disc; }
+    .policy-section strong { color: var(--text); font-weight: 600; }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin: 12px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .highlight strong { color: var(--text); }
+
+    /* ── Contact section ── */
+    .contact-box {
+      background: var(--deep);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      margin-top: 52px;
+    }
+    .contact-box h2 {
+      font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;
+    }
+    .contact-box p { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--primary); font-weight: 700;
+      text-decoration: none; font-size: 0.9rem;
+    }
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 0.85rem; color: var(--muted);
+      text-decoration: none; font-weight: 500;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: rgba(240,242,255,0.3); }
+
+    @media (max-width: 600px) {
+      .page-wrap { padding: 40px 20px 64px; }
+      .summary-banner, .contact-box { padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Site navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="about.html">✈️ TripSplit</a>
+    <div class="nav-spacer"></div>
+    <a class="nav-link" href="about.html">About Us</a>
+  </div>
+</nav>
+
+<main>
+<div class="page-wrap">
+
+  <!-- Page header -->
+  <header class="page-header">
+    <p class="label">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="effective">Effective date: <strong>1 July 2025</strong> &nbsp;·&nbsp; TripSplit</p>
+  </header>
+
+  <!-- Plain-language summary -->
+  <div class="summary-banner" role="note" aria-label="Privacy summary">
+    <h2>The short version</h2>
+    <ul class="summary-list">
+      <li>All your data is stored locally on your device — we cannot access it.</li>
+      <li>No personal information is collected, transmitted, or sold.</li>
+      <li>Camera access is used only for scanning QR codes.</li>
+      <li>Photo library access is used only when you choose to import a QR image.</li>
+      <li>No account, email, or phone number is ever required.</li>
+      <li>TripSplit works completely offline.</li>
+    </ul>
+  </div>
+
+  <!-- Policy sections -->
+
+  <div class="policy-section">
+    <h2><span class="section-num">1</span> Introduction</h2>
+    <p>
+      This Privacy Policy describes how TripSplit ("we", "us", or "our") handles information when you use our mobile application (the "App"). We are committed to protecting your privacy and being transparent about our data practices.
+    </p>
+    <p>
+      By using TripSplit, you agree to the practices described in this policy. If you do not agree, please uninstall the App.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">2</span> Information We Collect</h2>
+    <p>TripSplit collects no personal information from you. The App operates entirely offline.</p>
+    <p>The only data created by the App is the data you enter yourself, including:</p>
+    <ul>
+      <li>Trip or group names you create</li>
+      <li>Member names you type in</li>
+      <li>Expense titles and amounts you record</li>
+    </ul>
+    <div class="highlight">
+      <strong>This data never leaves your device</strong> unless you actively choose to share a QR code with another person.
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">3</span> Information We Do Not Collect</h2>
+    <p>We do not collect, store, or process any of the following:</p>
+    <ul>
+      <li>Your name, email address, or phone number</li>
+      <li>Device identifiers, advertising IDs, or IP addresses</li>
+      <li>Location data</li>
+      <li>Usage analytics, crash reports sent to us, or behavioural data</li>
+      <li>Financial account information of any kind</li>
+      <li>Any data from your contacts or calendar</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">4</span> Local Data Storage</h2>
+    <p>
+      All data entered in TripSplit is stored exclusively on your device using a local database (Hive). This database is private to the App and is not accessible by other apps or by us.
+    </p>
+    <p>
+      If you uninstall TripSplit, all locally stored data is permanently deleted from your device. We have no backup of this data and cannot restore it.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">5</span> Camera Permission</h2>
+    <p>
+      TripSplit requests access to your device's camera <strong>solely</strong> to scan QR codes generated by another TripSplit user. The camera feed is processed entirely on-device using the device's built-in machine learning frameworks (MLKit on Android, AVFoundation on iOS).
+    </p>
+    <ul>
+      <li>No camera images or video are transmitted to any server.</li>
+      <li>No photos are saved by the App as a result of scanning.</li>
+      <li>Camera access is only active while the QR scanning screen is open.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">6</span> Photo Library Permission</h2>
+    <p>
+      TripSplit may request access to your photo library when you choose to use the <em>Import QR from Gallery</em> feature. This lets you pick a QR code image that was shared with you (for example, via a messaging app).
+    </p>
+    <ul>
+      <li>Photo library access is only requested when you explicitly tap "Import from Gallery".</li>
+      <li>Only the image you select is read by the App.</li>
+      <li>The image is not stored, uploaded, or sent anywhere.</li>
+      <li>You can decline this permission and still use all other features of the App.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">7</span> QR Code Synchronisation</h2>
+    <p>
+      TripSplit uses QR codes to synchronise trip data between devices. When you share a QR code (via the device's native share sheet, WhatsApp, Email, etc.), the QR code contains a compressed snapshot of your group data — expenses and member names — in an encrypted and compressed format.
+    </p>
+    <p>
+      <strong>You are in full control of who receives this QR code.</strong> TripSplit does not upload or route this data through any server. The QR code is transmitted using only the apps and channels you personally choose.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">8</span> Data Security</h2>
+    <p>
+      Because TripSplit stores data only on your device, the security of your data depends on the security of your device. We recommend:
+    </p>
+    <ul>
+      <li>Using a device passcode or biometric lock.</li>
+      <li>Keeping your operating system and apps up to date.</li>
+      <li>Sharing QR codes only with people you trust.</li>
+    </ul>
+    <p>
+      We do not operate any servers, so there is no centralised database that could be breached.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">9</span> Third-Party Services</h2>
+    <p>
+      TripSplit does not integrate with any third-party analytics, advertising, crash-reporting, or data-processing services.
+    </p>
+    <p>
+      The App does use open-source Flutter packages (such as the QR code generator and scanner libraries) that run entirely on-device and do not send data to external services.
+    </p>
+    <p>
+      If you share a QR code via a third-party messaging app (WhatsApp, Telegram, Email, etc.), that app's own privacy policy governs how the transmitted message is handled. TripSplit has no control over or responsibility for third-party services you choose to use for sharing.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">10</span> Children's Privacy</h2>
+    <p>
+      TripSplit does not knowingly collect personal information from children under 13 (or the applicable age of digital consent in your region). Since the App collects no personal information from any user, there is no special risk to younger users from a data perspective.
+    </p>
+    <p>
+      If you are a parent or guardian and have concerns about your child's use of TripSplit, please contact us at the address below.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">11</span> Your Rights</h2>
+    <p>
+      Because TripSplit does not collect or store any personal information on our servers, there is no personal data held by us that you would need to request, correct, or delete.
+    </p>
+    <p>
+      All data is under your direct control on your device. To delete all TripSplit data, simply uninstall the App.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-num">12</span> Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. If we make material changes, we will update the effective date at the top of this page. We encourage you to review this policy periodically.
+    </p>
+    <p>
+      Continued use of TripSplit after any changes constitutes your acceptance of the updated policy.
+    </p>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p>
+      If you have any questions about this Privacy Policy, your data, or our practices, please reach out:
+    </p>
+    <a class="contact-email" href="mailto:dsconsultantx@gmail.com">
+      ✉ dsconsultantx@gmail.com
+    </a>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:dsconsultantx@gmail.com">Contact</a>
+    </div>
+    <p class="footer-copy">© <script>document.write(new Date().getFullYear())</script> TripSplit. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

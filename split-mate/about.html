@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About TripSplit — the offline-first expense splitting app. Split trip expenses with friends, no login required." />
+  <title>About Us — TripSplit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --midnight: #0F1117;
+      --deep:     #1A1D2E;
+      --card:     #232638;
+      --primary:  #5B6EF5;
+      --accent:   #50E3C2;
+      --text:     #F0F2FF;
+      --muted:    rgba(240,242,255,0.55);
+      --border:   rgba(91,110,245,0.18);
+      --radius:   16px;
+      --max:      760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--midnight);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 24px;
+      height: 56px; display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.1rem; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo span { font-size: 1.3rem; }
+    .nav-spacer { flex: 1; }
+    .nav-link {
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--muted); text-decoration: none;
+      padding: 6px 12px; border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: var(--text); background: rgba(91,110,245,0.12); }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: var(--max); margin: 0 auto;
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(80,227,194,0.1);
+      border: 1px solid rgba(80,227,194,0.25);
+      padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before { content: "✦"; }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    h1 .gradient {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 520px; margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: #fff;
+      font-size: 0.95rem; font-weight: 700;
+      padding: 14px 28px; border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── Sections ── */
+    section {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 24px 72px;
+    }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800; letter-spacing: -0.8px;
+      margin-bottom: 16px; line-height: 1.2;
+    }
+    p { color: var(--muted); margin-bottom: 16px; }
+
+    /* ── Cards grid ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px; margin-top: 28px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+    }
+    .card-icon {
+      font-size: 1.8rem; margin-bottom: 12px; display: block;
+    }
+    .card h3 {
+      font-size: 0.95rem; font-weight: 700; margin-bottom: 6px;
+      color: var(--text);
+    }
+    .card p { font-size: 0.85rem; margin: 0; line-height: 1.55; }
+
+    /* ── Mission strip ── */
+    .mission-strip {
+      background: linear-gradient(135deg,
+        rgba(91,110,245,0.1) 0%,
+        rgba(80,227,194,0.07) 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+    .mission-strip blockquote {
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--text); line-height: 1.45;
+      letter-spacing: -0.3px;
+    }
+    .mission-strip blockquote::before { content: "❝ "; color: var(--primary); }
+    .mission-strip blockquote::after  { content: " ❞"; color: var(--primary); }
+
+    /* ── Privacy commitment row ── */
+    .trust-row {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
+    }
+    .trust-chip {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--accent);
+      background: rgba(80,227,194,0.08);
+      border: 1px solid rgba(80,227,194,0.2);
+      padding: 7px 14px; border-radius: 100px;
+    }
+    .trust-chip::before { content: "✓"; font-weight: 900; }
+
+    /* ── Contact ── */
+    .contact-card {
+      background: var(--deep);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .contact-card h3 {
+      font-size: 1.1rem; font-weight: 800; margin: 0;
+      letter-spacing: -0.3px;
+    }
+    .contact-card p { margin: 0; }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--primary); font-weight: 700;
+      text-decoration: none; font-size: 0.95rem;
+    }
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 24px 56px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 0.85rem; color: var(--muted);
+      text-decoration: none; font-weight: 500;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy {
+      font-size: 0.8rem; color: rgba(240,242,255,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 48px; }
+      section { padding-bottom: 52px; }
+      .mission-strip { padding: 24px 20px; }
+      .contact-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Site navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#"><span>✈️</span> TripSplit</a>
+    <div class="nav-spacer"></div>
+    <a class="nav-link" href="privacy.html">Privacy Policy</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">About Us</div>
+    <h1>Splitting bills,<br /><span class="gradient">not your privacy.</span></h1>
+    <p>TripSplit is an offline-first expense sharing app. No login. No cloud. No tracking. Just friends, trips, and fair splits.</p>
+    <a class="hero-cta" href="#mission">Our mission ↓</a>
+  </div>
+
+  <!-- Mission -->
+  <section id="mission">
+    <div class="section-label">Mission</div>
+    <h2>Why we built this</h2>
+    <div class="mission-strip">
+      <blockquote>
+        Splitting expenses with friends should be simple, private, and work anywhere — even when there's no signal.
+      </blockquote>
+    </div>
+    <p>
+      Most expense-splitting apps require a phone number, email, or social login. They sync your data to a server, store it indefinitely, and monetise your behaviour. We disagreed with that model.
+    </p>
+    <p>
+      TripSplit stores everything locally on your device. When you need to sync with a friend, you share a QR code — nothing leaves your phone unless you choose to share it.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Key Features -->
+  <section id="features">
+    <div class="section-label">Features</div>
+    <h2>Everything you need, nothing you don't</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon">📴</span>
+        <h3>Fully Offline</h3>
+        <p>Works without internet. No server, no Firebase, no backend required at any point.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔐</span>
+        <h3>No Login</h3>
+        <p>No email, no phone number, no social account. Open the app and start splitting.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📱</span>
+        <h3>QR Sync</h3>
+        <p>Share a QR code image or scan a friend's phone to instantly merge expenses.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🧮</span>
+        <h3>Smart Settlements</h3>
+        <p>Debt simplification minimises the number of payments needed to settle up.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📊</span>
+        <h3>Spend Analytics</h3>
+        <p>See spending by category and by member with clear, interactive charts.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">💱</span>
+        <h3>Multi-Currency</h3>
+        <p>Supports ₹, $, €, £, ¥ and more — choose per trip, not per device.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Privacy commitment -->
+  <section id="privacy-commitment">
+    <div class="section-label">Privacy Commitment</div>
+    <h2>Your data stays with you</h2>
+    <p>
+      We built TripSplit around one core belief: your financial data belongs to you alone. Unlike cloud-based apps, we cannot access, view, or monetise your expenses — because they never leave your device.
+    </p>
+    <div class="trust-row">
+      <div class="trust-chip">No data sold</div>
+      <div class="trust-chip">No ads</div>
+      <div class="trust-chip">No server</div>
+      <div class="trust-chip">No account required</div>
+      <div class="trust-chip">Camera used only for QR scanning</div>
+      <div class="trust-chip">Gallery used only when you choose</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2>Get in touch</h2>
+    <p>Questions, feedback, or partnership enquiries — we're happy to hear from you.</p>
+    <div class="contact-card">
+      <h3>TripSplit Support</h3>
+      <p>For all enquiries including support, privacy questions, and feedback:</p>
+      <a class="contact-email" href="mailto:dsconsultantx@gmail.com">
+        ✉ dsconsultantx@gmail.com
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:dsconsultantx@gmail.com">Contact</a>
+    </div>
+    <p class="footer-copy">© <script>document.write(new Date().getFullYear())</script> TripSplit. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
