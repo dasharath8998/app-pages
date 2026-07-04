@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Video Prompt Studio — an all-in-one teleprompter and video recording app built for content creators, educators, and presenters.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="About Us — Video Prompt Studio">
+  <meta property="og:description" content="Built for creators who want to record polished videos without losing their train of thought. Teleprompter and camera, unified.">
+  <meta property="og:type" content="website">
+  <title>About Us — Video Prompt Studio</title>
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Tokens ── */
+    :root {
+      --rec:        #E8341A;
+      --rec-soft:   #FFF1EE;
+      --ink:        #0E0E12;
+      --ink-60:     #5A5A68;
+      --ink-30:     #ABABBB;
+      --surface:    #FFFFFF;
+      --bg:         #F5F5F7;
+      --border:     #E4E4EA;
+      --green:      #3DDB84;
+      --radius-sm:  8px;
+      --radius:     14px;
+      --radius-lg:  20px;
+      --max-w:      820px;
+      --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+      --font-disp:  'Syne', 'Inter', system-ui, sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap');
+
+    /* ── Base ── */
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--ink);
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .wordmark-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--rec);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wordmark-icon svg { width: 18px; height: 18px; fill: #fff; }
+    .wordmark-text {
+      font-family: var(--font-disp);
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+    .rec-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--rec);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .rec-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--rec);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.75); }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--ink);
+      padding: 56px 24px 0;
+      border-bottom: 3px solid var(--rec);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--rec);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .hero h1 {
+      font-family: var(--font-disp);
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--rec);
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.62);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    /* Audience tags */
+    .audience-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 44px;
+    }
+    .audience-tag {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* ── Page body ── */
+    .page-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+
+    /* ── Mission band ── */
+    .mission-band {
+      background: var(--rec);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+    .mission-band .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .mission-band p {
+      font-family: var(--font-disp);
+      font-size: clamp(18px, 3vw, 23px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Section ── */
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--rec);
+      margin-bottom: 10px;
+    }
+    .section h2 {
+      font-family: var(--font-disp);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    .section p {
+      color: var(--ink-60);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .feature-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .feature-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: block;
+      line-height: 1;
+    }
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .feature-desc {
+      font-size: 13px;
+      color: var(--ink-60);
+      line-height: 1.5;
+    }
+
+    /* ── Privacy grid ── */
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .privacy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #F0FBF5;
+      border: 1px solid #C3EDD4;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 14px;
+      color: #1A5C38;
+      line-height: 1.45;
+    }
+    .privacy-check {
+      width: 18px;
+      height: 18px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .privacy-check svg {
+      width: 10px;
+      height: 10px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    /* ── Contact card ── */
+    .contact-section {
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .contact-section .section-label { color: rgba(255,255,255,0.45); }
+    .contact-section h2 {
+      font-family: var(--font-disp);
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    .contact-section p {
+      color: rgba(255,255,255,0.55);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--rec);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.15s;
+    }
+    .contact-btn:hover { opacity: 0.88; }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--ink);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--ink-30);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover,
+    .footer-links a[aria-current="page"] { color: #fff; }
+    .footer-copy { font-size: 12px; color: #4A4A5A; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .site-header  { padding: 0 16px; }
+      .hero         { padding: 40px 16px 0; }
+      .hero-sub     { font-size: 15px; }
+      .page-body    { padding: 32px 16px 60px; }
+      .section      { padding: 24px 20px; }
+      .mission-band { padding: 28px 24px; }
+      .contact-section { padding: 32px 24px; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .privacy-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 380px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rec-dot { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--rec);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="about-us.html" class="wordmark" aria-label="Video Prompt Studio — Home" aria-current="page">
+        <span class="wordmark-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 8.5A1.5 1.5 0 0 1 17 10v4a1.5 1.5 0 0 1-2.293 1.274L13 14.382V14a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.382l1.707-.856A1.5 1.5 0 0 1 15.5 8.5ZM7 8a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H7Z"/>
+          </svg>
+        </span>
+      <span class="wordmark-text">Video Prompt Studio</span>
+    </a>
+    <div class="rec-badge" aria-label="Recording indicator">
+      <span class="rec-dot" aria-hidden="true"></span>
+      REC
+    </div>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero" aria-labelledby="page-title">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">About Video Prompt Studio</span>
+    <h1 id="page-title">Record with confidence.<br><em>Read without limits.</em></h1>
+    <p class="hero-sub">
+      An all-in-one teleprompter and video recording studio for creators who want to deliver their message clearly — without memorising a word.
+    </p>
+    <div class="audience-row" role="list" aria-label="Built for">
+      <span class="audience-tag" role="listitem">Content Creators</span>
+      <span class="audience-tag" role="listitem">YouTubers</span>
+      <span class="audience-tag" role="listitem">Educators</span>
+      <span class="audience-tag" role="listitem">Trainers</span>
+      <span class="audience-tag" role="listitem">Online Teachers</span>
+      <span class="audience-tag" role="listitem">Public Speakers</span>
+      <span class="audience-tag" role="listitem">Influencers</span>
+      <span class="audience-tag" role="listitem">Presenters</span>
+      <span class="audience-tag" role="listitem">Vloggers</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Body ── -->
+<main class="page-body" id="main-content">
+
+  <!-- Welcome -->
+  <article class="section" aria-labelledby="welcome-heading">
+    <span class="section-label">Welcome</span>
+    <h2 id="welcome-heading">Your personal recording studio</h2>
+    <p>Video Prompt Studio combines a professional-grade teleprompter with a full-featured video recorder in a single, easy-to-use mobile app. Whether you're teaching an online course, filming a product review, or preparing a keynote presentation, the app lets you read your script naturally while the camera captures your performance — no memorisation, no repeated takes, no stress.</p>
+    <p>Everything runs on your device. Write your script, adjust the scroll speed to match your pace, choose your layout, press record, and deliver your best take — every time.</p>
+  </article>
+
+  <!-- Mission -->
+  <div class="mission-band" role="region" aria-labelledby="mission-heading">
+    <span class="label">Our Mission</span>
+    <p id="mission-heading">To make professional-quality video creation accessible to every creator — by bringing the teleprompter and the camera together in one simple, private, and powerful app.</p>
+  </div>
+
+  <!-- Features -->
+  <article class="section" aria-labelledby="features-heading">
+    <span class="section-label">Features</span>
+    <h2 id="features-heading">Everything you need, built in</h2>
+    <p>Video Prompt Studio is designed around what creators actually need — no subscriptions, no complicated setup, no account required.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">📜</span>
+        <div class="feature-title">Built-in Teleprompter</div>
+        <p class="feature-desc">Smooth, auto-scrolling script display that keeps pace with your natural speaking rhythm.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">⚡</span>
+        <div class="feature-title">Adjustable Scroll Speed</div>
+        <p class="feature-desc">Five preset speeds plus a custom slider — from a gentle crawl to a confident pace.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">🎬</span>
+        <div class="feature-title">Multiple Layouts</div>
+        <p class="feature-desc">Eight layout modes including overlay, split-screen, floating window, camera-only, and script-only.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">📷</span>
+        <div class="feature-title">Front & Rear Camera</div>
+        <p class="feature-desc">Switch between lenses with a single tap. Supports pinch-to-zoom and tap-to-focus.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">🎥</span>
+        <div class="feature-title">HD Video Recording</div>
+        <p class="feature-desc">Record at 720p, 1080p, 1440p, or 4K at 24, 30, or 60 frames per second.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">📝</span>
+        <div class="feature-title">Script Management</div>
+        <p class="feature-desc">Create, edit, import, and organise unlimited scripts with word count and reading time estimates.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">📱</span>
+        <div class="feature-title">Local Storage</div>
+        <p class="feature-desc">All videos and scripts are stored privately on your device — nothing leaves without your action.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">🌗</span>
+        <div class="feature-title">Dark & Light Themes</div>
+        <p class="feature-desc">A polished interface in dark or light mode, with full system theme support.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">🎨</span>
+        <div class="feature-title">Customisable Display</div>
+        <p class="feature-desc">Control font family, size, colour, background opacity, mirror mode, and more.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon" aria-hidden="true">🔒</span>
+        <div class="feature-title">Privacy-First Design</div>
+        <p class="feature-desc">No account. No tracking. No cloud. Your creative work is yours alone.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Privacy Commitment -->
+  <article class="section" aria-labelledby="privacy-heading">
+    <span class="section-label">Privacy Commitment</span>
+    <h2 id="privacy-heading">What stays on your device, stays on your device</h2>
+    <p>Privacy is not an afterthought in Video Prompt Studio — it is built into the foundation of how the app works. We believe your creative content belongs to you, and only you.</p>
+    <div class="privacy-grid" role="list">
+      <div class="privacy-item" role="listitem">
+          <span class="privacy-check" aria-hidden="true">
+            <svg viewBox="0 0 12 10"><polyline points="1.5 5.5 4.5 8.5 10.5 1.5"/></svg>
+          </span>
+        Your scripts stay on your device
+      </div>
+      <div class="privacy-item" role="listitem">
+          <span class="privacy-check" aria-hidden="true">
+            <svg viewBox="0 0 12 10"><polyline points="1.5 5.5 4.5 8.5 10.5 1.5"/></svg>
+          </span>
+        Your videos stay on your device
+      </div>
+      <div class="privacy-item" role="listitem">
+          <span class="privacy-check" aria-hidden="true">
+            <svg viewBox="0 0 12 10"><polyline points="1.5 5.5 4.5 8.5 10.5 1.5"/></svg>
+          </span>
+        No cloud storage or sync
+      </div>
+      <div class="privacy-item" role="listitem">
+          <span class="privacy-check" aria-hidden="true">
+            <svg viewBox="0 0 12 10"><polyline points="1.5 5.5 4.5 8.5 10.5 1.5"/></svg>
+          </span>
+        No user accounts required
+      </div>
+      <div class="privacy-item" role="listitem">
+          <span class="privacy-check" aria-hidden="true">
+            <svg viewBox="0 0 12 10"><polyline points="1.5 5.5 4.5 8.5 10.5 1.5"/></svg>
+          </span>
+        No tracking or analytics
+      </div>
+      <div class="privacy-item" role="listitem">
+          <span class="privacy-check" aria-hidden="true">
+            <svg viewBox="0 0 12 10"><polyline points="1.5 5.5 4.5 8.5 10.5 1.5"/></svg>
+          </span>
+        No advertising
+      </div>
+    </div>
+    <p style="margin-top:16px;">For full details on how we handle permissions and data, see our <a href="privacy-policy.html" style="color:var(--rec);font-weight:600;text-decoration:none;">Privacy Policy</a>.</p>
+  </article>
+
+  <!-- Contact -->
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <span class="section-label">Contact</span>
+    <h2 id="contact-heading">Get in touch</h2>
+    <p>Have a question, a feature idea, or need support? We'd love to hear from you. Send us an email and we'll get back to you as soon as we can.</p>
+    <a href="mailto:dsconsultantx@gmail.com" class="contact-btn" aria-label="Email Video Prompt Studio">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      dsconsultantx@gmail.com
+    </a>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="about-us.html" aria-current="page">About Us</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:dsconsultantx@gmail.com">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2026 Video Prompt Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
