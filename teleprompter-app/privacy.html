@@ -440,7 +440,7 @@
   <article class="section" aria-labelledby="sec4">
     <span class="section-num">Section 04</span>
     <h2 id="sec4">Permissions</h2>
-    <p>Video Prompt Studio requests certain device permissions to enable its core features. Below is a description of each permission and why it is needed.</p>
+    <p>Video Prompt Studio requests only the minimum permissions required for its core recording functionality. All recordings and scripts are saved to the app's private internal storage — no storage or media library permission is requested or needed on any platform.</p>
     <div class="perm-grid">
       <div class="perm-card">
         <div class="perm-card-title">
@@ -458,20 +458,13 @@
       </div>
       <div class="perm-card">
         <div class="perm-card-title">
-          <span class="perm-icon" aria-hidden="true">📁</span>
-          Storage / Media Access
-        </div>
-        <p>Required to save your recorded videos and scripts to your device's local storage. On Android 13 and later, the app requests access only to the specific media types it needs (video files). On older versions, broader storage permission may be requested. No files are read from your personal photo library without your explicit action.</p>
-      </div>
-      <div class="perm-card">
-        <div class="perm-card-title">
           <span class="perm-icon" aria-hidden="true">🎤</span>
           Speech Recognition (optional)
         </div>
-        <p>Optionally requested to enable voice-assisted teleprompter scrolling. Speech recognition, when active, processes your voice locally to detect spoken words and advance the script position. This feature is entirely optional and can be used without enabling it.</p>
+        <p>Optionally requested to enable voice-assisted teleprompter scrolling. Speech recognition, when active, processes your voice locally to detect spoken words and advance the script position. This feature is entirely optional and can be disabled at any time.</p>
       </div>
     </div>
-    <p style="margin-top:16px;">All permissions are used solely to provide the core functionality described above. You may deny optional permissions without losing access to the app's primary recording features.</p>
+    <p style="margin-top:16px;">The app does not request access to your photo library, media library, or external storage. All files it creates are stored in its own private app container and are accessible only to the app itself.</p>
   </article>
 
   <!-- 5. Data Storage -->
